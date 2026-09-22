@@ -1,0 +1,8 @@
+{"t": 0.496, "at": "2026-09-22T04:37:22.997716+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "44190"}}}
+{"t": 0.582, "at": "2026-09-22T04:37:23.083040+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.611, "at": "2026-09-22T04:37:23.112073+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 60.937, "at": "2026-09-22T04:38:23.438038+00:00", "event": "replay.tier_fallback", "data": {"step": "s05_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.477, "at": "2026-09-22T04:55:45.956885+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "44190"}}}
+{"t": 0.566, "at": "2026-09-22T04:55:46.045750+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.588, "at": "2026-09-22T04:55:46.067653+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 61.002, "at": "2026-09-22T04:56:46.482130+00:00", "event": "replay.tier_fallback", "data": {"step": "s05_fill", "recorded": "role_name", "matched": "name_attr"}}

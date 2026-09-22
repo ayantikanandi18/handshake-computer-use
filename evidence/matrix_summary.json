@@ -1,0 +1,66 @@
+[
+  {
+    "scenario": "happy path",
+    "member_id": "12345",
+    "status": "success",
+    "detail": "{\"savings_balance\": \"$ 4,182.55\"}",
+    "recoveries": "",
+    "as_expected": true
+  },
+  {
+    "scenario": "different member",
+    "member_id": "22841",
+    "status": "success",
+    "detail": "{\"savings_balance\": \"$ 15,904.12\"}",
+    "recoveries": "",
+    "as_expected": true
+  },
+  {
+    "scenario": "member does not exist",
+    "member_id": "99999",
+    "status": "business_outcome",
+    "detail": "MEMBER_NOT_FOUND",
+    "recoveries": "",
+    "as_expected": true
+  },
+  {
+    "scenario": "restricted member",
+    "member_id": "44190",
+    "status": "business_outcome",
+    "detail": "ACCESS_DENIED",
+    "recoveries": "",
+    "as_expected": true
+  },
+  {
+    "scenario": "surprise interstitial",
+    "member_id": "12345",
+    "status": "success",
+    "detail": "{\"savings_balance\": \"$ 4,182.55\"}",
+    "recoveries": "MAINTENANCE_INTERSTITIAL:ok",
+    "as_expected": true
+  },
+  {
+    "scenario": "transient slow load",
+    "member_id": "12345",
+    "status": "success",
+    "detail": "{\"savings_balance\": \"$ 4,182.55\"}",
+    "recoveries": "",
+    "as_expected": true
+  },
+  {
+    "scenario": "session expires mid-flow",
+    "member_id": "12345",
+    "status": "success",
+    "detail": "{\"savings_balance\": \"$ 4,182.55\"}",
+    "recoveries": "SESSION_EXPIRED:ok",
+    "as_expected": true
+  },
+  {
+    "scenario": "application 500",
+    "member_id": "12345",
+    "status": "failure",
+    "detail": "surface_error",
+    "recoveries": "",
+    "as_expected": true
+  }
+]

@@ -1,0 +1,23 @@
+{% include "_base.html" %}
+<div class="hdr">Open Sub-Account &nbsp;-&nbsp; {{ m.member_id }} ({{ m.name }})</div>
+{% if error %}<div class="err">{{ error }}</div>{% endif %}
+<table class="panel" width="96%" cellpadding="0" cellspacing="0"><tr><td>
+<form method="post" name="frmSubAcct">
+<table cellpadding="6" cellspacing="0">
+<tr><td class="lbl" width="170">Account Nickname</td>
+    <td class="val"><input type="text" name="txtNickname" size="28"></td></tr>
+<tr><td class="lbl">Account Type</td>
+    <td class="val"><select name="ddlType">
+      <option value="">-- Select --</option>
+      <option value="REG">Regular Savings</option>
+      <option value="VAC">Vacation Club</option>
+      <option value="HOL">Holiday Club</option>
+    </select></td></tr>
+<tr><td class="lbl">Opening Deposit</td>
+    <td class="val">$ <input type="text" name="txtDeposit" size="12"> <i>(minimum $25.00)</i></td></tr>
+<tr><td></td><td class="val">
+    <input type="submit" name="btnSubmit" value="Open Account" class="btn"></td></tr>
+</table>
+</form>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,16 @@
+<html><head><title>Meridian Core - Sign On</title></head>
+<body bgcolor="#dfe6ec" style="font-family:Verdana;font-size:11px">
+<table width="100%" cellpadding="0" cellspacing="0"><tr><td bgcolor="#1f4e79" style="color:#fff;padding:6px;font-weight:bold">
+MERIDIAN CORE &nbsp;|&nbsp; Member Servicing Platform</td></tr></table>
+<center>
+<table width="420" bgcolor="#ffffff" cellpadding="6" cellspacing="0" style="border:1px solid #93a8bb;margin-top:60px">
+<tr><td colspan="2" bgcolor="#eef3f7" style="font-weight:bold;padding:6px">Operator Sign On</td></tr>
+{% if expired %}<tr><td colspan="2"><table bgcolor="#fffbe6" width="100%"><tr><td style="color:#8a6d00;padding:6px">
+Your session has expired. Please sign on again.</td></tr></table></td></tr>{% endif %}
+{% if error %}<tr><td colspan="2"><table bgcolor="#ffe8e8" width="100%"><tr><td style="color:#900;padding:6px">{{ error }}</td></tr></table></td></tr>{% endif %}
+<form method="post" name="frmLogon">
+<tr><td width="130" bgcolor="#eef3f7">Operator ID</td><td><input type="text" name="txtUser" size="24"></td></tr>
+<tr><td bgcolor="#eef3f7">Password</td><td><input type="password" name="txtPass" size="24"></td></tr>
+<tr><td></td><td><input type="submit" value="Sign On" style="background:#1f4e79;color:#fff;border:1px solid #163c5e;padding:3px 12px"></td></tr>
+</form>
+</table></center></body></html>

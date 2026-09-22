@@ -1,0 +1,24 @@
+{% include "_base.html" %}
+<div class="hdr">Member Detail &nbsp;-&nbsp; {{ m.member_id }}</div>
+<table class="panel" width="96%" cellpadding="0" cellspacing="0"><tr><td>
+<table width="100%" cellpadding="5" cellspacing="0">
+<tr><td class="lbl" width="160">Member Name</td><td class="val">{{ m.name }}</td></tr>
+<tr><td class="lbl">Member Number</td><td class="val">{{ m.member_id }}</td></tr>
+<tr><td class="lbl">Status</td><td class="val">{{ m.status }}</td></tr>
+</table>
+</td></tr></table>
+
+<div class="hdr">Share Balances</div>
+<table class="panel" width="96%" cellpadding="0" cellspacing="0"><tr><td>
+<table width="100%" cellpadding="5" cellspacing="0">
+<tr bgcolor="#eef3f7"><td><b>Share Type</b></td><td><b>Current Balance</b></td></tr>
+<tr><td class="lbl">Savings</td><td class="val">$ {{ m.savings_balance }}</td></tr>
+<tr><td class="lbl">Checking</td><td class="val">$ {{ m.checking_balance }}</td></tr>
+</table>
+</td></tr></table>
+
+<table width="96%" cellpadding="6"><tr><td>
+<a href="/content/member/{{ m.member_id }}/subaccount">Open Sub-Account</a> &nbsp;|&nbsp;
+<a href="/content/search">Back to Search</a>
+</td></tr></table>
+</body></html>

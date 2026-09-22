@@ -1,0 +1,14 @@
+LOCATION: http://127.0.0.1:8099/app
+TITLE: Meridian Core
+FRAME navFrame: http://127.0.0.1:8099/nav
+FRAME mainFrame: http://127.0.0.1:8099/content
+CONTROLS:
+  [e1] link name="Home" frame=navFrame
+  [e2] link name="Member Search" label="|" frame=navFrame
+  [e3] link name="Transactions" label="|" frame=navFrame
+  [e4] link name="Reports" label="|" frame=navFrame
+VISIBLE TEXT:
+  MERIDIAN CORE
+  Home  |  Member Search  |  Transactions  |  Reports
+  System Error
+  An unexpected error occurred (REF 0x80004005). The transaction was not completed.

@@ -1,0 +1,33 @@
+{% include "_base.html" %}
+<div class="hdr">Member Search</div>
+{% if message %}<div class="msg">{{ message }}</div>{% endif %}
+<table class="panel" width="96%" cellpadding="0" cellspacing="0"><tr><td>
+<form method="post" name="frmSearch">
+<table cellpadding="6" cellspacing="0"><tr>
+<td class="lbl">Member ID</td>
+<td class="val"><input type="text" name="txtMemberId" size="18" maxlength="10"></td>
+<td class="val"><input type="submit" name="btnSearch" value="Search" class="btn"></td>
+</tr></table>
+</form>
+</td></tr></table>
+
+{% if results is not none %}
+<div class="hdr">Results</div>
+<table class="panel" width="96%" cellpadding="0" cellspacing="0"><tr><td>
+<table width="100%" cellpadding="5" cellspacing="0" border="0" id="ctl00_MainContent_gv1">
+<tr bgcolor="#eef3f7"><td><b>Member ID</b></td><td><b>Name</b></td><td><b>Status</b></td><td><b>Action</b></td></tr>
+{% if results %}
+{% for r in results %}
+<tr{% if loop.index0 % 2 %} bgcolor="#f7fafc"{% endif %}>
+<td>{{ r.member_id }}</td><td>{{ r.name }}</td><td>{{ r.status }}</td>
+<td><a id="ctl00_MainContent_gv1_ctl{{ '%02d' % (loop.index + 1) }}_lnkView"
+       href="/content/member/{{ r.member_id }}">View</a></td>
+</tr>
+{% endfor %}
+{% else %}
+<tr><td colspan="4" style="padding:10px;color:#900">No records returned.</td></tr>
+{% endif %}
+</table>
+</td></tr></table>
+{% endif %}
+</body></html>

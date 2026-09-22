@@ -1,0 +1,13 @@
+{% include "_base.html" %}
+<div class="hdr">Sub-Account Opened</div>
+<table class="panel" width="96%" cellpadding="0" cellspacing="0"><tr><td>
+<table width="100%" cellpadding="5" cellspacing="0">
+<tr><td class="lbl" width="180">Confirmation Reference</td><td class="val"><b>{{ ref }}</b></td></tr>
+<tr><td class="lbl">Member</td><td class="val">{{ m.name }} ({{ m.member_id }})</td></tr>
+<tr><td class="lbl">Nickname</td><td class="val">{{ nickname }}</td></tr>
+<tr><td class="lbl">Account Type</td><td class="val">{{ acct_type }}</td></tr>
+<tr><td class="lbl">Opening Deposit</td><td class="val">$ {{ deposit }}</td></tr>
+</table>
+</td></tr></table>
+<table width="96%" cellpadding="6"><tr><td><a href="/content/search">Back to Search</a></td></tr></table>
+</body></html>

@@ -1,0 +1,13 @@
+{"t": 0.477, "at": "2026-09-22T04:45:30.748813+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "12345"}}}
+{"t": 0.59, "at": "2026-09-22T04:45:30.862512+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.629, "at": "2026-09-22T04:45:30.900687+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.767, "at": "2026-09-22T04:45:31.039634+00:00", "event": "replay.recovery", "data": {"condition": "SESSION_EXPIRED", "action": "reauth", "attempt": 1, "at_step": "s04_click"}}
+{"t": 0.779, "at": "2026-09-22T04:45:31.050842+00:00", "event": "replay.failure", "data": {"kind": "unrecoverable_condition", "step": "s04_click", "expected": "a recoverable condition did not clear", "observed": "MERIDIAN CORE \u00a0|\u00a0 Member Servicing Platform\nOperator Sign On\n\nYour session has expired. Please sign on again.\n\nOperator ID\t\nPassword\t\n\t"}}
+{"t": 0.418, "at": "2026-09-22T05:03:53.381590+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "12345"}}}
+{"t": 0.494, "at": "2026-09-22T05:03:53.457539+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.521, "at": "2026-09-22T05:03:53.484304+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.636, "at": "2026-09-22T05:03:53.599612+00:00", "event": "replay.recovery", "data": {"condition": "SESSION_EXPIRED", "action": "reauth", "attempt": 1, "at_step": "s04_click"}}
+{"t": 0.643, "at": "2026-09-22T05:03:53.606100+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.653, "at": "2026-09-22T05:03:53.616102+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 60.959, "at": "2026-09-22T05:04:53.922275+00:00", "event": "replay.tier_fallback", "data": {"step": "s05_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 151.27, "at": "2026-09-22T05:06:24.232901+00:00", "event": "replay.success", "data": {"outputs_keys": ["savings_balance"]}}

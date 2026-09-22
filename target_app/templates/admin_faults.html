@@ -1,0 +1,11 @@
+{% include "_base.html" %}
+<div class="hdr">Fault Injection (test harness)</div>
+<table class="panel" width="96%" cellpadding="8"><tr><td>
+<form method="post">
+{% for k, v in faults.items() %}
+<div><label><input type="checkbox" name="{{ k }}" {% if v %}checked{% endif %}> {{ k }}</label></div>
+{% endfor %}
+<br><input type="submit" value="Apply" class="btn">
+<input type="submit" name="reset" value="Reset all" class="btn">
+</form>
+</td></tr></table></body></html>

@@ -1,0 +1,410 @@
+{
+  "schema_version": "1.0",
+  "id": "meridian.member.read_savings_balance",
+  "version": 1,
+  "name": "Read member savings balance",
+  "description": "Look up a member and read their savings balance.",
+  "surface": {
+    "kind": "legacy_web",
+    "product": "meridian-core",
+    "version_range": "*",
+    "entry_url": "http://127.0.0.1:8099/",
+    "frames_expected": [
+      "mainFrame",
+      "navFrame"
+    ]
+  },
+  "inputs": [
+    {
+      "name": "member_id",
+      "type": "string",
+      "description": "Member number to look up.",
+      "required": true,
+      "sensitivity": "internal",
+      "example": "12345",
+      "pattern": "\\d{3,10}"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "savings_balance",
+      "type": "string",
+      "description": "Current savings share balance as displayed.",
+      "sensitivity": "internal",
+      "source": {
+        "description": "Savings balance cell on the member detail screen",
+        "frame": "mainFrame",
+        "strategies": [
+          {
+            "tier": "table_cell",
+            "value": {
+              "row_contains": "Savings",
+              "cell_index": 1
+            },
+            "note": "Row located by its label, value read from the adjacent cell."
+          }
+        ]
+      },
+      "extract": "text",
+      "attribute": null,
+      "transform": "strip"
+    }
+  ],
+  "business_outcomes": [
+    {
+      "code": "MEMBER_NOT_FOUND",
+      "description": "No member exists with the supplied number.",
+      "detect": {
+        "kind": "text_present",
+        "value": "No member found matching that ID",
+        "frame": null,
+        "case_sensitive": false
+      },
+      "terminal": true
+    },
+    {
+      "code": "MEMBER_RECORD_NOT_FOUND",
+      "description": "The member detail screen reports the record does not exist.",
+      "detect": {
+        "kind": "text_present",
+        "value": "Record not found",
+        "frame": null,
+        "case_sensitive": false
+      },
+      "terminal": true
+    },
+    {
+      "code": "ACCESS_DENIED",
+      "description": "The operator profile is not entitled to view this member.",
+      "detect": {
+        "kind": "text_present",
+        "value": "Access denied",
+        "frame": null,
+        "case_sensitive": false
+      },
+      "terminal": true
+    },
+    {
+      "code": "VALIDATION_ERROR",
+      "description": "The application rejected the supplied input.",
+      "detect": {
+        "kind": "text_present",
+        "value": "must be numeric",
+        "frame": null,
+        "case_sensitive": false
+      },
+      "terminal": true
+    }
+  ],
+  "recoverables": [
+    {
+      "code": "MAINTENANCE_INTERSTITIAL",
+      "description": "A scheduled-maintenance notice appears before the content.",
+      "detect": {
+        "kind": "text_present",
+        "value": "Scheduled Maintenance Notice",
+        "frame": null,
+        "case_sensitive": false
+      },
+      "action": "dismiss",
+      "target": {
+        "description": "Acknowledge button on the maintenance notice",
+        "frame": "mainFrame",
+        "strategies": [
+          {
+            "tier": "role_name",
+            "value": {
+              "role": "link",
+              "name": "Acknowledge",
+              "exact": true
+            },
+            "note": "The notice offers a single acknowledgement control."
+          }
+        ]
+      },
+      "max_attempts": 2
+    },
+    {
+      "code": "SESSION_EXPIRED",
+      "description": "The session timed out mid-flow and the app returned to sign on.",
+      "detect": {
+        "kind": "text_present",
+        "value": "Your session has expired",
+        "frame": null,
+        "case_sensitive": false
+      },
+      "action": "reauth",
+      "target": null,
+      "max_attempts": 1
+    }
+  ],
+  "steps": [
+    {
+      "id": "s01_fill",
+      "action": "fill",
+      "description": "The goal is to sign on with the operator ID and password, then use Member Search to look up member 12345. The first step is to enter the operator ID and password.",
+      "target": {
+        "description": "txtUser",
+        "frame": null,
+        "strategies": [
+          {
+            "tier": "role_name",
+            "value": {
+              "role": "textbox",
+              "name": "txtUser",
+              "exact": true
+            },
+            "note": "Role plus accessible name: portable across versions and surfaces."
+          },
+          {
+            "tier": "label_anchored",
+            "value": {
+              "label": "Operator ID",
+              "exact": false
+            },
+            "note": "Anchored to the visible label; survives markup churn around the control."
+          },
+          {
+            "tier": "name_attr",
+            "value": {
+              "name": "txtUser"
+            },
+            "note": "Form control name; stable in server-rendered apps, absent elsewhere."
+          }
+        ]
+      },
+      "value": "{{secret:operator_user}}",
+      "url": null,
+      "risk": "read",
+      "expect": null,
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s02_fill",
+      "action": "fill",
+      "description": "The next step is to sign on with the provided operator ID and password.",
+      "target": {
+        "description": "txtPass",
+        "frame": null,
+        "strategies": [
+          {
+            "tier": "role_name",
+            "value": {
+              "role": "textbox",
+              "name": "txtPass",
+              "exact": true
+            },
+            "note": "Role plus accessible name: portable across versions and surfaces."
+          },
+          {
+            "tier": "label_anchored",
+            "value": {
+              "label": "Password",
+              "exact": false
+            },
+            "note": "Anchored to the visible label; survives markup churn around the control."
+          },
+          {
+            "tier": "name_attr",
+            "value": {
+              "name": "txtPass"
+            },
+            "note": "Form control name; stable in server-rendered apps, absent elsewhere."
+          }
+        ]
+      },
+      "value": "{{secret:operator_password}}",
+      "url": null,
+      "risk": "read",
+      "expect": null,
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s03_click",
+      "action": "click",
+      "description": "The user has already filled in the Operator ID and Password. The next step is to click the Sign On button to proceed to the next screen.",
+      "target": {
+        "description": "Sign On",
+        "frame": null,
+        "strategies": [
+          {
+            "tier": "role_name",
+            "value": {
+              "role": "button",
+              "name": "Sign On",
+              "exact": true
+            },
+            "note": "Role plus accessible name: portable across versions and surfaces."
+          }
+        ]
+      },
+      "value": null,
+      "url": null,
+      "risk": "read",
+      "expect": null,
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s04_click",
+      "action": "click",
+      "description": "The goal is to use Member Search to look up member 12345. The 'Member Search' link is visible and needs to be clicked to proceed.",
+      "target": {
+        "description": "Member Search",
+        "frame": "navFrame",
+        "strategies": [
+          {
+            "tier": "role_name",
+            "value": {
+              "role": "link",
+              "name": "Member Search",
+              "exact": true
+            },
+            "note": "Role plus accessible name: portable across versions and surfaces."
+          },
+          {
+            "tier": "label_anchored",
+            "value": {
+              "label": "|",
+              "exact": false
+            },
+            "note": "Anchored to the visible label; survives markup churn around the control."
+          }
+        ]
+      },
+      "value": null,
+      "url": null,
+      "risk": "read",
+      "expect": null,
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s05_fill",
+      "action": "fill",
+      "description": "The next step is to enter the member ID and search for the member.",
+      "target": {
+        "description": "txtMemberId",
+        "frame": "mainFrame",
+        "strategies": [
+          {
+            "tier": "role_name",
+            "value": {
+              "role": "textbox",
+              "name": "txtMemberId",
+              "exact": true
+            },
+            "note": "Role plus accessible name: portable across versions and surfaces."
+          },
+          {
+            "tier": "label_anchored",
+            "value": {
+              "label": "Member ID",
+              "exact": false
+            },
+            "note": "Anchored to the visible label; survives markup churn around the control."
+          },
+          {
+            "tier": "name_attr",
+            "value": {
+              "name": "txtMemberId"
+            },
+            "note": "Form control name; stable in server-rendered apps, absent elsewhere."
+          }
+        ]
+      },
+      "value": "{{member_id}}",
+      "url": null,
+      "risk": "read",
+      "expect": null,
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s06_click",
+      "action": "click",
+      "description": "The next step is to click the Search button to perform the member search.",
+      "target": {
+        "description": "Search",
+        "frame": "mainFrame",
+        "strategies": [
+          {
+            "tier": "role_name",
+            "value": {
+              "role": "button",
+              "name": "Search",
+              "exact": true
+            },
+            "note": "Role plus accessible name: portable across versions and surfaces."
+          },
+          {
+            "tier": "name_attr",
+            "value": {
+              "name": "btnSearch"
+            },
+            "note": "Form control name; stable in server-rendered apps, absent elsewhere."
+          }
+        ]
+      },
+      "value": null,
+      "url": null,
+      "risk": "read",
+      "expect": null,
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s07_click",
+      "action": "click",
+      "description": "The search has returned results, and the first row matches the member ID 12345. The next step is to click the 'View' link to see the member detail screen.",
+      "target": {
+        "description": "View",
+        "frame": "mainFrame",
+        "strategies": [
+          {
+            "tier": "role_name",
+            "value": {
+              "role": "link",
+              "name": "View",
+              "exact": true
+            },
+            "note": "Role plus accessible name: portable across versions and surfaces."
+          },
+          {
+            "tier": "label_anchored",
+            "value": {
+              "label": "Active",
+              "exact": false
+            },
+            "note": "Anchored to the visible label; survives markup churn around the control."
+          }
+        ]
+      },
+      "value": null,
+      "url": null,
+      "risk": "read",
+      "expect": null,
+      "timeout_ms": 10000,
+      "optional": false
+    }
+  ],
+  "checkpoint": {
+    "kind": "text_present",
+    "value": "Share Balances",
+    "frame": null,
+    "case_sensitive": false
+  },
+  "max_risk": "read",
+  "reauth_step_ids": [
+    "s01_fill",
+    "s02_fill",
+    "s03_click"
+  ],
+  "recorded_from_goal": "Sign on with operator id {{secret=[REDACTED] and password {{secret=[REDACTED] then use Member Search to look up member 12345, click View on the result row, and stop when the member detail screen showing Share Balances is visible.",
+  "recorded_at": "2026-09-22T04:23:36.429867+00:00",
+  "recorded_by_model": "qwen2.5:7b-instruct",
+  "evidence_ref": "evidence/discovery-004",
+  "tenant_overlays": {}
+}

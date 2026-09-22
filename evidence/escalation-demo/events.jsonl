@@ -1,0 +1,19 @@
+{"t": 0.599, "at": "2026-09-22T05:08:01.069450+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "12345"}}}
+{"t": 0.705, "at": "2026-09-22T05:08:01.174474+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.736, "at": "2026-09-22T05:08:01.205753+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 61.163, "at": "2026-09-22T05:09:01.632850+00:00", "event": "replay.tier_fallback", "data": {"step": "s05_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 151.627, "at": "2026-09-22T05:10:32.096665+00:00", "event": "replay.success", "data": {"outputs_keys": ["savings_balance"]}}
+{"t": 0.419, "at": "2026-09-22T05:10:55.108650+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "12345"}}}
+{"t": 0.489, "at": "2026-09-22T05:10:55.178589+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.509, "at": "2026-09-22T05:10:55.198937+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 60.896, "at": "2026-09-22T05:11:55.585607+00:00", "event": "replay.tier_fallback", "data": {"step": "s05_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 151.261, "at": "2026-09-22T05:13:25.950750+00:00", "event": "escalation.raised", "data": {"id": "iv_34cf1f1efa", "capability": "meridian.member.read_savings_balance", "step": "s07_click", "reason": "policy requires human approval: step is classified write (recorded write, inferred write); this run is limited to read"}}
+{"t": 151.277, "at": "2026-09-22T05:13:25.966773+00:00", "event": "escalation.claimed", "data": {"id": "iv_34cf1f1efa", "operator": "alice.operator"}}
+{"t": 0.467, "at": "2026-09-22T05:13:52.501304+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "12345"}}}
+{"t": 0.567, "at": "2026-09-22T05:13:52.601787+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.599, "at": "2026-09-22T05:13:52.633402+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 61.025, "at": "2026-09-22T05:14:53.059607+00:00", "event": "replay.tier_fallback", "data": {"step": "s05_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 151.338, "at": "2026-09-22T05:16:23.372481+00:00", "event": "escalation.raised", "data": {"id": "iv_719aff6c07", "capability": "meridian.member.read_savings_balance", "step": "s07_click", "reason": "policy requires human approval: step is classified write (recorded write, inferred write); this run is limited to read"}}
+{"t": 151.34, "at": "2026-09-22T05:16:23.374436+00:00", "event": "escalation.claimed", "data": {"id": "iv_719aff6c07", "operator": "alice.operator"}}
+{"t": 151.571, "at": "2026-09-22T05:16:23.606099+00:00", "event": "escalation.human_action", "data": {"id": "iv_719aff6c07", "description": "Clicked View on member 12345 after confirming the request was legitimate"}}
+{"t": 151.711, "at": "2026-09-22T05:16:23.746272+00:00", "event": "escalation.released", "data": {"id": "iv_719aff6c07", "instruction": "member detail is open, continue", "human_actions": 1}}

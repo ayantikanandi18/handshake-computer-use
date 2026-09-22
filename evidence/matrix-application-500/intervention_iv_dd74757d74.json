@@ -1,0 +1,18 @@
+{
+  "id": "iv_dd74757d74",
+  "created_at": "2026-09-22T04:47:03.174276+00:00",
+  "state": "pending",
+  "capability_id": "meridian.member.read_savings_balance",
+  "goal": "Look up a member and read their savings balance.",
+  "step_id": "s05_fill",
+  "reason": "could not resolve target: txtMemberId",
+  "location": "http://127.0.0.1:8099/app",
+  "screen_summary": "LOCATION: http://127.0.0.1:8099/app\nTITLE: Meridian Core\nFRAME navFrame: http://127.0.0.1:8099/nav\nFRAME mainFrame: http://127.0.0.1:8099/content/search\nCONTROLS:\n  [e1] link name=\"Home\" frame=navFrame\n  [e2] link name=\"Member Search\" label=\"|\" frame=navFrame\n  [e3] link name=\"Transactions\" label=\"|\" frame=navFrame\n  [e4] link name=\"Reports\" label=\"|\" frame=navFrame\nVISIBLE TEXT:\n  MERIDIAN CORE\n  Home \u00a0|\u00a0 Member Search \u00a0|\u00a0 Transactions \u00a0|\u00a0 Reports\n  System Error\n  An unexpected error occurred (REF 0x80004005). The transaction was not completed.",
+  "screenshot_path": "C:\\Users\\ayant\\handshake-computer-use\\evidence\\matrix-application-500\\intervention_iv_dd74757d74.png",
+  "session_endpoint": null,
+  "claimed_by": null,
+  "claimed_at": null,
+  "resolved_at": null,
+  "resume_instruction": null,
+  "human_actions": []
+}
