@@ -17,3 +17,11 @@
 {"t": 151.34, "at": "2026-09-22T05:16:23.374436+00:00", "event": "escalation.claimed", "data": {"id": "iv_719aff6c07", "operator": "alice.operator"}}
 {"t": 151.571, "at": "2026-09-22T05:16:23.606099+00:00", "event": "escalation.human_action", "data": {"id": "iv_719aff6c07", "description": "Clicked View on member 12345 after confirming the request was legitimate"}}
 {"t": 151.711, "at": "2026-09-22T05:16:23.746272+00:00", "event": "escalation.released", "data": {"id": "iv_719aff6c07", "instruction": "member detail is open, continue", "human_actions": 1}}
+{"t": 0.616, "at": "2026-09-22T18:03:50.236482+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "12345"}}}
+{"t": 0.709, "at": "2026-09-22T18:03:50.329146+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 0.736, "at": "2026-09-22T18:03:50.355944+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 61.081, "at": "2026-09-22T18:04:50.701029+00:00", "event": "replay.tier_fallback", "data": {"step": "s05_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 151.473, "at": "2026-09-22T18:06:21.093454+00:00", "event": "escalation.raised", "data": {"id": "iv_e262d5a7a8", "capability": "meridian.member.read_savings_balance", "step": "s07_click", "reason": "policy requires human approval: step is classified write (recorded write, inferred write); this run is limited to read"}}
+{"t": 151.478, "at": "2026-09-22T18:06:21.098091+00:00", "event": "escalation.claimed", "data": {"id": "iv_e262d5a7a8", "operator": "alice.operator"}}
+{"t": 151.683, "at": "2026-09-22T18:06:21.303015+00:00", "event": "escalation.human_action", "data": {"id": "iv_e262d5a7a8", "description": "Clicked View on member 12345 after confirming the request was legitimate"}}
+{"t": 151.803, "at": "2026-09-22T18:06:21.423033+00:00", "event": "escalation.released", "data": {"id": "iv_e262d5a7a8", "instruction": "member detail is open, continue", "human_actions": 1}}

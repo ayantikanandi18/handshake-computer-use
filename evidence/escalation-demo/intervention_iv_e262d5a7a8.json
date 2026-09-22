@@ -1,0 +1,24 @@
+{
+  "id": "iv_e262d5a7a8",
+  "created_at": "2026-09-22T18:05:50.918699+00:00",
+  "state": "resolved",
+  "capability_id": "meridian.member.read_savings_balance",
+  "goal": "Sign on with operator id {{secret=[REDACTED] and password {{secret=[REDACTED] then use Member Search to look up member 12345, click View on the result row, and stop when the member detail screen showing Share Balances is visible.",
+  "step_id": "s07_click",
+  "reason": "policy requires human approval: step is classified write (recorded write, inferred write); this run is limited to read",
+  "location": "http://127.0.0.1:8099/app",
+  "screen_summary": "LOCATION: http://127.0.0.1:8099/app\nTITLE: Meridian Core\nFRAME navFrame: http://127.0.0.1:8099/nav\nFRAME mainFrame: http://127.0.0.1:8099/content/search\nCONTROLS:\n  [e1] link name=\"Home\" frame=navFrame\n  [e2] link name=\"Member Search\" label=\"|\" frame=navFrame\n  [e3] link name=\"Transactions\" label=\"|\" frame=navFrame\n  [e4] link name=\"Reports\" label=\"|\" frame=navFrame\n  [e5] textbox name=\"txtMemberId\" label=\"Member ID\" frame=mainFrame\n  [e6] button name=\"Search\" frame=mainFrame\n  [e7] link name=\"View\" label=\"Active\" frame=mainFrame\nVISIBLE TEXT:\n  MERIDIAN CORE\n  Home \u00a0|\u00a0 Member Search \u00a0|\u00a0 Transactions \u00a0|\u00a0 Reports\n  Member Search\n  Member ID\t\t\n  Results\n  Member ID\tName\tStatus\tAction\n  12345\tDolores Abernathy\tActive\tView",
+  "screenshot_path": "C:\\Users\\ayant\\handshake-computer-use\\evidence\\escalation-demo\\intervention_iv_e262d5a7a8.png",
+  "session_endpoint": "http://127.0.0.1:9333",
+  "claimed_by": "alice.operator",
+  "claimed_at": "2026-09-22T18:06:21.098091+00:00",
+  "resolved_at": "2026-09-22T18:06:21.423033+00:00",
+  "resume_instruction": "member detail is open, continue",
+  "human_actions": [
+    {
+      "at": "2026-09-22T18:06:21.303015+00:00",
+      "description": "Clicked View on member 12345 after confirming the request was legitimate",
+      "location": "http://127.0.0.1:8099/app"
+    }
+  ]
+}

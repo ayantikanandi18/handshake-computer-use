@@ -1,0 +1,5 @@
+{"t": 1.629, "at": "2026-09-22T15:47:48.551493+00:00", "event": "replay.start", "data": {"capability": "meridian.member.read_savings_balance", "version": 1, "tenant": null, "params": {"member_id": "12345"}}}
+{"t": 1.906, "at": "2026-09-22T15:47:48.829384+00:00", "event": "replay.tier_fallback", "data": {"step": "s01_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 1.994, "at": "2026-09-22T15:47:48.916766+00:00", "event": "replay.tier_fallback", "data": {"step": "s02_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 64.228, "at": "2026-09-22T15:48:51.151805+00:00", "event": "replay.tier_fallback", "data": {"step": "s05_fill", "recorded": "role_name", "matched": "name_attr"}}
+{"t": 155.231, "at": "2026-09-22T15:50:22.154034+00:00", "event": "replay.success", "data": {"outputs_keys": ["savings_balance"]}}

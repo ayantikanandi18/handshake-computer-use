@@ -1,0 +1,98 @@
+{
+  "status": "success",
+  "capability_id": "meridian.member.read_savings_balance",
+  "capability_version": 1,
+  "tenant_id": null,
+  "outputs": {
+    "savings_balance": "$ 15,904.12"
+  },
+  "outcome_code": null,
+  "outcome_detail": null,
+  "failure_kind": null,
+  "failed_step": null,
+  "expected": null,
+  "observed": null,
+  "evidence_dir": "C:\\Users\\ayant\\handshake-computer-use\\evidence\\show-replay-22841",
+  "intervention_id": null,
+  "recoveries": [],
+  "trace": [
+    {
+      "step_id": "s01_fill",
+      "action": "fill",
+      "description": "The goal is to sign on with the operator ID and password, then use Member Search to look up member 12345. The first step is to enter the operator ID and password.",
+      "ok": true,
+      "detail": "fill ok (tier=name_attr)",
+      "matched_tier": "name_attr",
+      "expected": null,
+      "observed": null,
+      "duration_ms": 165
+    },
+    {
+      "step_id": "s02_fill",
+      "action": "fill",
+      "description": "The next step is to sign on with the provided operator ID and password.",
+      "ok": true,
+      "detail": "fill ok (tier=name_attr)",
+      "matched_tier": "name_attr",
+      "expected": null,
+      "observed": null,
+      "duration_ms": 71
+    },
+    {
+      "step_id": "s03_click",
+      "action": "click",
+      "description": "The user has already filled in the Operator ID and Password. The next step is to click the Sign On button to proceed to the next screen.",
+      "ok": true,
+      "detail": "click ok (tier=role_name)",
+      "matched_tier": "role_name",
+      "expected": null,
+      "observed": null,
+      "duration_ms": 229
+    },
+    {
+      "step_id": "s04_click",
+      "action": "click",
+      "description": "The goal is to use Member Search to look up member 12345. The 'Member Search' link is visible and needs to be clicked to proceed.",
+      "ok": true,
+      "detail": "click ok (tier=role_name)",
+      "matched_tier": "role_name",
+      "expected": null,
+      "observed": null,
+      "duration_ms": 31029
+    },
+    {
+      "step_id": "s05_fill",
+      "action": "fill",
+      "description": "The next step is to enter the member ID and search for the member.",
+      "ok": true,
+      "detail": "fill ok (tier=name_attr)",
+      "matched_tier": "name_attr",
+      "expected": null,
+      "observed": null,
+      "duration_ms": 30509
+    },
+    {
+      "step_id": "s06_click",
+      "action": "click",
+      "description": "The next step is to click the Search button to perform the member search.",
+      "ok": true,
+      "detail": "click ok (tier=role_name)",
+      "matched_tier": "role_name",
+      "expected": null,
+      "observed": null,
+      "duration_ms": 30111
+    },
+    {
+      "step_id": "s07_click",
+      "action": "click",
+      "description": "The search has returned results, and the first row matches the member ID 12345. The next step is to click the 'View' link to see the member detail screen.",
+      "ok": true,
+      "detail": "click ok (tier=role_name)",
+      "matched_tier": "role_name",
+      "expected": null,
+      "observed": null,
+      "duration_ms": 30273
+    }
+  ],
+  "duration_ms": 152738
+}

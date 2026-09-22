@@ -3,7 +3,7 @@
   "id": "meridian.member.read_savings_balance",
   "version": 1,
   "name": "Read member savings balance",
-  "description": "Look up a member and read their savings balance.",
+  "description": "Sign on with operator id {{secret:operator_user}} and password {{secret:operator_password}}, then use Member Search to look up member 12345, click View on the result row, and stop when the member detail screen showing Share Balances is visible.",
   "surface": {
     "kind": "legacy_web",
     "product": "meridian-core",
@@ -402,9 +402,9 @@
     "s02_fill",
     "s03_click"
   ],
-  "recorded_from_goal": "Sign on with operator id {{secret=[REDACTED] and password {{secret=[REDACTED] then use Member Search to look up member 12345, click View on the result row, and stop when the member detail screen showing Share Balances is visible.",
-  "recorded_at": "2026-09-22T04:23:36.429867+00:00",
+  "recorded_from_goal": "Sign on with operator id {{secret:operator_user}} and password {{secret:operator_password}}, then use Member Search to look up member 12345, click View on the result row, and stop when the member detail screen showing Share Balances is visible.",
+  "recorded_at": "2026-09-22T15:57:21.788549+00:00",
   "recorded_by_model": "qwen2.5:7b-instruct",
-  "evidence_ref": "evidence/discovery-004",
+  "evidence_ref": "C:\\Users\\ayant\\handshake-computer-use\\evidence\\live-demo",
   "tenant_overlays": {}
 }
